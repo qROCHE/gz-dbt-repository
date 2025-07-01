@@ -27,9 +27,5 @@ joined as (
     from o
     left join s
         on o.orders_id = s.orders_id
-        group by orders_id, date_date
-        order by date_date DESC, orders_id DESC
         
-      
-
 )
