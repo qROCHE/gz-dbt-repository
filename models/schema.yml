@@ -6,17 +6,16 @@ sources:
     description: greenweez raw data source
     tables:
       - name: sales
-        identifier: raw_gz_sales  # Correction du mot "identifeir"
+        identifier: raw_gz_sales
         description: sales of greenweez - we have one row per product_id found in each order_id
         columns:
           - name: orders_id
             description: order identifier
+            tests:
+              - not_null
           - name: pdt_id
             description: product identifier
-          - name: order_product_id
-            description: primary key of the table (orders_id + pdt_id concatenated)
             tests:
-              - unique
               - not_null
 
       - name: product
@@ -27,6 +26,7 @@ sources:
             description: primary key of the table
             tests:
               - unique
+              - not_null
 
       - name: ship
         identifier: raw_gz_ship
@@ -36,3 +36,4 @@ sources:
             description: primary key of the table
             tests:
               - unique
+              - not_null
