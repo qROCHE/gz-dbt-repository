@@ -19,6 +19,7 @@ joined as (
     select
         sales.orders_id,
         sales.products_id,
+        sales.date_date,
         sales.quantity,
         sales.revenue,
         product.purchase_price,
@@ -28,6 +29,7 @@ joined as (
     from sales
     left join product
         on sales.products_id = product.products_id
+        
 
 )
 
