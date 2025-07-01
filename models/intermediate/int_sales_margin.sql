@@ -20,11 +20,11 @@ joined as (
         sales.orders_id,
         sales.products_id,
         sales.quantity,
-        sales.price,
+        sales.revenue,
         product.purchase_price,
-        sales.quantity * sales.price as revenue,
+        sales.revenue as revenue_total,
         sales.quantity * product.purchase_price as purchase_cost,
-        (sales.quantity * sales.price) - (sales.quantity * product.purchase_price) as margin
+        (sales.quantity * sales.revenue) - (sales.quantity * product.purchase_price) as margin
     from sales
     left join product
         on sales.products_id = product.products_id
