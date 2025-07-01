@@ -1,31 +1,12 @@
 {{ config(materialized='table') }}
 
-with o as (
-
-    select *
-    from {{ ref('int_orders_margin') }}
-
-),
-
-s as (
-
-    select
-        orders_id,
-        shipping_fee, 
-        ship_cost
-    from {{ ref('stg_raw__ship') }}
-
-),
-
-joined as (
-
-    select
-        o.orders_id,
-        o.date_date,
-        -- Calcul de l'opérational margin
-        o.margin + s.shipping_fee - s.log_cost - s.ship_cost as operational_margin
-    from o
-    left join s
-        on o.orders_id = s.orders_id
-        
-)
+select
+    o.orders_id,
+    o.date_date,
+    o.margin,
+    + s.shipping_fee,
+    - s.logcost,
+    - s.ship_cost as operational_margin
+from {{ ref('int_sales_margin') }} o
+left join {{ ref('stg_raw__ship') }} s
+    on o.orders_id = s.orders_id
