@@ -41,6 +41,8 @@ models :
       +materialized : views
     intermediate : 
       +materialized : views
-    mart :
-      +materialized: table
+    mart:
+      +schema: mart  
+      finance:
+        +schema: finance_mart  
   
