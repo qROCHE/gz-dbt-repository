@@ -59,4 +59,18 @@ models :
         tests:
               - unique
               - not_null
- 
+              
+  - name: int_campaigns_day
+    description: "Aggregated daily advertising metrics (impressions, clicks, spend) per day."
+    columns:
+      - name: date_date
+        description: "Date of aggregation."
+        tests:
+          - not_null
+          - unique
+      - name: ads_impression
+        description: "Total advertising impressions on the day."
+      - name: ads_clicks
+        description: "Total advertising clicks on the day."
+      - name: ads_cost
+        description: "Total advertising spend on the day."
