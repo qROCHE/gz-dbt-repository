@@ -1,5 +1,3 @@
-
-
 with sales as (
 
     select *
