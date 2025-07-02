@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: raw
-    schema: gz_raw_data  # Nom du dataset BigQuery
+    schema: gz_raw_data
     description: greenweez raw data source
     tables:
       - name: sales
@@ -37,3 +37,15 @@ sources:
             tests:
               - unique
               - not_null
+
+      - name: raw_gz_adwords
+        alias: adwords
+
+      - name: raw_gz_bing
+        alias: bing
+
+      - name: raw_gz_criteo
+        alias: criteo
+
+      - name: raw_gz_facebook
+        alias: facebook
