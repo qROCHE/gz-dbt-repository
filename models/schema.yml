@@ -49,3 +49,14 @@ sources:
 
       - name: raw_gz_facebook
         alias: facebook
+
+models : 
+  - name: int_campaigns
+  
+    description: UNION ALL of raw ad 
+    columns:
+      - name: (campaign_key || '-' || date_date)
+        tests:
+              - unique
+              - not_null
+ 
