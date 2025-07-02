@@ -9,13 +9,13 @@ source as (
 renamed as (
 
     select
+        camPGN_name AS campaign_name,
+        campaign_key,
         date_date,
         paid_source,
-        campaign_key,
-        campgn_name,
-        ads_cost,
         impression,
-        click
+        click,
+        CAST(ads_cost AS FLOAT64) AS ads_cost
 
     from source
 
