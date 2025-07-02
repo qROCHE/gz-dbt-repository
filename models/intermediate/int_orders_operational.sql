@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+
 
 select
     o.orders_id,
